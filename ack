@@ -987,7 +987,21 @@ If you are not on Windows, you never need to use C<ACK_PAGER_COLOR>.
 
 =head2 Vim integration
 
-F<ack> integrates easily with the Vim text editor. Set this in your
+
+
+F<ack> integrates easily with the Vim text editor - there are a number of ways of
+doing this
+
+=head3 Install F<ack.vim> plugin - displays searches in a split window
+
+The F<ack.vim> plugin creates a split window.
+Files containing the search term will be listed in the window, along with the line number of the occurrence, once for each occurrence.
+
+To install it visit L<http://www.vim.org/scripts/script.php?script_id=2572> and follow the instructions there.
+
+=head3 Modify  F<.vimrc> to use F<ack> instead of F<grep>
+
+Set this in your
 F<.vimrc> to use F<ack> instead of F<grep>:
 
     set grepprg=ack\ -k
