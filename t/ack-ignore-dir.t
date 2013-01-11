@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-use Test::More tests => 24;
+use Test::More tests => 26;
 use File::Spec;
 
 use lib 't';
@@ -55,6 +55,14 @@ DASH_IGNORE_DIR: {
     sets_match( \@results, \@expected, $test_description );
 }
 
+DASH_IGNORE_DIR_FILTER: {
+    print "********* \n" ;
+    set_up_assertion_that_these_options_will_ignore_those_directories(
+        [ '--ignore-dir=is:subdir',  ],
+        [ @std_ignore, 'subdir',  ],
+    );
+    sets_match( \@results, \@expected, $test_description );
+}
 DASH_IGNORE_DIR_WITH_SLASH: {
     set_up_assertion_that_these_options_will_ignore_those_directories(
         [ '--ignore-dir=subdir/',  ],
